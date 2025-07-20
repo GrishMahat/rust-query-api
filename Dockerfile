@@ -1,8 +1,12 @@
-FROM rust:1.79.0
+FROM rust:alpine3.20 AS builder
 
 WORKDIR /app
 COPY . .
 
 RUN cargo build --release
 
-CMD ./target/release/query_api
+FROM alpine:3.20
+
+WORKDIR /app
+COPY --from=builder /app/target/release/query_api ./query_api
+CMD ["./query_api"]
