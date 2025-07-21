@@ -5,4 +5,12 @@ COPY . .
 
 RUN cargo build --release
 
-CMD ./target/release/query_api
+ENV BASE_URL=${BASE_URL}
+ENV PORT=${PORT}
+ENV API_KEY=${API_KEY}
+ENV ADMIN_API_KEY=${ADMIN_API_KEY}
+ENV POSTGRES_URL=${POSTGRES_URL}
+ENV WEBHOOK_URL=${WEBHOOK_URL}
+ENV FEATURES=${FEATURES}
+
+CMD ["./target/release/query_api"]
