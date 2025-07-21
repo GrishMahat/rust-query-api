@@ -12,5 +12,5 @@ ENV FEATURES=${FEATURES}
 
 RUN cargo build --release
 
-# CMD ["./target/release/query_api"]
-CMD ["sleep", "infinity"]
+CMD ["./target/release/query_api"]
+# CMD ["sleep", "infinity"]
